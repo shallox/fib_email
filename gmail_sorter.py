@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 def inbox_scanner(gcon):
-    dnt_start = datetime.now()
+    dtn_start = datetime.now()
     """ Indexes mailbox and adds all messages into Sqlite DB and querys the DB
     to ensure the record doesn't exists """
     print('Starting email gather')
@@ -23,9 +23,10 @@ def inbox_scanner(gcon):
         final_dat_clean = dat_clean(more_dat)
         email_list.append(final_dat_clean)
         inc_dec -= 1
-        print(f'%{100.0 * inc_dec/count} progress {inc_dec} of {count} left')
+        print(f'{100.0 * inc_dec/count}% progress {inc_dec} of {count} left')
     email_all = panda.DataFrame(email_list)
     sql_commit(email_all, 'email_all')
+    print(f'Done in {dtn_start - datetime.now()}')
 
 
 def dat_clean(dat):
