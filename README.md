@@ -13,4 +13,4 @@ To Run you will need the following:
 * sqlalchemy
 
 
-Right now it will only dump all emails in an inbox into an sqlite3 DB.
+Right now it will only dump all emails in an mailbox into an sqlite3 DB.
